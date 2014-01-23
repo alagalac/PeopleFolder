@@ -1,0 +1,40 @@
+<% provide(:title, 'Questions') %>
+
+<h1>Questions and Answers</h1>
+
+<ol class="breadcrumb">
+  <li><a href="#">Home</a></li>
+  <li class="active">Questions</li>
+</ol>
+
+<%= render partial: 'shared/flash' %>
+
+<p>Would you like to <%= link_to("ask a question?", new_question_path) %></p>
+
+<br/>
+
+<div class="table-responsive">
+  <table class="table">
+    
+    <% @questions.each do |question| %>
+    <tr>
+      <% if (current_user.votes & question.votes).count == 1 %>
+      <td class="col-sm-1">
+        <%= link_to vote_question_path(question) + ".json", method: :post, :remote => true, :class=>"vote-button btn-success btn btn-xs "  do %>
+          <span class="glyphicon glyphicon-star"></span> <%= question.votes.count %>
+        <% end %>
+      </td>
+      <% else %>
+      <td class="col-sm-1">
+        <%= link_to vote_question_path(question) + ".json", method: :post, :remote => true, :class=>"vote-button btn-default btn btn-xs "  do %>
+          <span class="glyphicon glyphicon-star"></span> <%= question.votes.count %>
+        <% end %>
+      </td>
+      <% end %>
+      
+      <td><%= link_to(question.title, question_path(question)) %></td>
+    </tr>
+    <% end %>
+    
+  </table>
+</div>

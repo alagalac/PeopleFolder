@@ -1,0 +1,40 @@
+<% provide(:title, 'Ideas') %>
+
+<h1>Ideas and Suggestions</h1>
+
+<ol class="breadcrumb">
+  <li><a href="#">Home</a></li>
+  <li class="active">Ideas</li>
+</ol>
+
+<%= render partial: 'shared/flash' %>
+
+<p>Would you like to <%= link_to("suggest an idea?", new_idea_path) %></p>
+
+<br/>
+
+<div class="table-responsive">
+  <table class="table">
+    
+    <% @ideas.each do |idea| %>
+    <tr>
+      <% if (current_user.votes & idea.votes).count == 1 %>
+      <td class="col-sm-1">
+        <%= link_to vote_idea_path(idea) + ".json", method: :post, :remote => true, :class=>"vote-button btn-success btn btn-xs "  do %>
+          <span class="glyphicon glyphicon-star"></span> <%= idea.votes.count %>
+        <% end %>
+      </td>
+      <% else %>
+      <td class="col-sm-1">
+        <%= link_to vote_idea_path(idea) + ".json", method: :post, :remote => true, :class=>"vote-button btn-default btn btn-xs "  do %>
+          <span class="glyphicon glyphicon-star"></span> <%= idea.votes.count %>
+        <% end %>
+      </td>
+      <% end %>
+      
+      <td><%= link_to(idea.title, idea_path(idea)) %></td>
+    </tr>
+    <% end %>
+    
+  </table>
+</div>

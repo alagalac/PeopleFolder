@@ -1,0 +1,28 @@
+<% provide(:title, @page.title) %>
+
+<h1><%= @page.title %></h1>
+
+<ol class="breadcrumb">
+  <li><a href="#">Home</a></li>
+  <li><%= link_to "Wiki", pages_path %></li>
+  <li class="active"><%= @page.name.humanize() %></li>
+</ol>
+
+<%= render partial: 'shared/flash' %>
+
+
+<div class="markdown_content"><%= @page.content %></div>
+
+
+<%= link_to "Edit page", edit_page_path(@page), :class => "btn btn-primary" %>
+
+<script type="text/javascript">
+$(function() {
+  var converter;
+  converter = new Markdown.Converter();
+  return $(".markdown_content").each(function() {
+    return $(this).html(converter.makeHtml($(this).html()));
+  });
+});
+
+</script>

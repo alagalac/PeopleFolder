@@ -1,0 +1,8 @@
+
+<ul class="sidebar-menu">
+  <li class="<%= (controller_name == "pages") ? "active" : "" %>" ><%= link_to("Wiki", pages_path)%></li>
+  <li class="<%= (controller_name == "ideas") ? "active" : "" %>"><%= link_to("Ideas", ideas_path) %></li>
+  <li class="<%= (controller_name == "questions") ? "active" : "" %>"><%= link_to("Questions", questions_path) %></li>
+  <li class="<%= (controller_name == "feedbacks") ? "active" : "" %>"><%= link_to("Feedback", new_feedback_path) %></li>
+
+</ul>

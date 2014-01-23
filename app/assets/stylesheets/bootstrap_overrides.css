@@ -1,0 +1,13 @@
+
+
+.navbar-inverse {
+
+  background: #26517C; /* Old browsers */
+  background: -moz-linear-gradient(top,  #26517C 0%, #04376C 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#26517C), color-stop(100%,#04376C)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #26517C 0%,#04376C 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #26517C 0%,#04376C 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #26517C 0%,#04376C 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  #26517C 0%,#04376C 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#26517C', endColorstr='#04376C',GradientType=0 ); /* IE6-9 */
+}

@@ -1,0 +1,32 @@
+<% provide(:title, 'Feedback') %>
+
+<h1>Feedback</h1>
+
+<ol class="breadcrumb">
+  <li><a href="#">Home</a></li>
+  <li class="active">Feedback</li>
+</ol>
+
+<%= render partial: 'shared/flash' %>
+
+<br/>
+
+<div class="table-responsive">
+  <table class="table">
+    
+    <% @feedbacks.each do |feedback| %>
+    <tr>      
+      <td><%= feedback.content %></td>
+      <td>
+        <% if feedback.creator.blank? %>
+          Anonymous
+        <% else %>
+          <%= feedback.creator.full_name %>
+        <% end %>
+
+      </td>
+    </tr>
+    <% end %>
+    
+  </table>
+</div>

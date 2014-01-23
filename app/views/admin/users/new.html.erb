@@ -1,0 +1,65 @@
+<% provide(:title, 'New User') %>
+
+<h1>New User</h1>
+
+<ol class="breadcrumb">
+  <li><a href="#">Home</a></li>
+  <li><%= link_to "Users", admin_users_path %></li>
+  <li class="active">New</li>
+</ol>
+
+<%= form_for(@user, :url => admin_users_path, :html => {:multipart => true, :class => "form-horizontal"}) do |f| %>
+
+  <%= render partial: 'shared/errors', locals: {object: @user} %>
+
+  <div class="form-group">
+    <%= f.label :first_name, :class=> "col-sm-2 control-label" %>
+    <div class="col-sm-6">
+      <%= f.text_field :first_name, :class => "form-control", :placeholder => "Joe" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :last_name, :class=> "col-sm-2 control-label" %>
+    <div class="col-sm-6">
+      <%= f.text_field :last_name, :class => "form-control", :placeholder => "Bloggs" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :email, :class=> "col-sm-2 control-label" %>
+    <div class="col-sm-6">
+      <%= f.email_field :email, :class => "form-control", :placeholder => "user@PeopleFolder.com", :autocomplete => "off" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password, :class=> "col-sm-2 control-label" %>
+    <div class="col-sm-6">
+      <%= f.password_field :password, :class => "form-control", :autocomplete => "off" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password_confirmation, :class=> "col-sm-2 control-label" %>
+    <div class="col-sm-6">
+      <%= f.password_field :password_confirmation , :class => "form-control", :autocomplete => "off" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :user_group_id, "User group", :class=> "col-sm-2 control-label" %>
+    <div class="col-sm-6">
+      <%= f.collection_select :user_group_id, @user_groups, :id, :name, {:prompt => "-- Select a user group --"}, {:class => 'form-control'} %>
+    </div>
+  </div>
+  
+
+
+  <div class="form-group">
+    <div class="col-sm-8">
+      <%= submit_tag "Add user", :class => "btn btn-primary pull-right" %>
+    </div>
+  </div>
+  
+<% end %>

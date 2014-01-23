@@ -1,0 +1,38 @@
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#">PeopleFolder</a>
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#">Help</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><%= link_to("Manage users", admin_users_path) %></li>
+          <li><a href="#">Manage permissions</a></li>
+          <li><%= link_to("View Feedback", feedbacks_path) %></li>
+          <li class="divider"></li>
+          <li><a href="#">Manage settings</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.full_name%> <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><%= link_to "Edit Account", edit_user_registration_path %></li>
+          <li class="divider"></li>
+          <li><%= link_to("Logout", log_out_path) %></li>
+        </ul>
+      </li>
+    </ul>
+  </div><!-- /.navbar-collapse -->
+</nav>
+

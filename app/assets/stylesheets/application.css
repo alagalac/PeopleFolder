@@ -1,0 +1,125 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ *= stub front_end
+ *= stub static_layout
+ */
+
+body
+{
+  background-color: #f7f7f7 !important;
+}
+
+.content
+{
+  background-color: #fff;
+  border: 1px solid #dae3e9;
+  box-shadow: -3px 3px 3px -2px #f1f1f3;
+  border-radius: 5px;
+  min-width: 400px;
+  min-height: 620px;
+  margin-bottom: 100px;
+  padding-bottom: 50px;
+  overflow: hidden;
+  position: relative;
+}
+.navbar-inverse
+{
+  background-color: #2c3742;
+}
+
+.navbar-nav>.open>a
+{
+  background-color: #04376C !important;
+}
+
+.navbar-nav > li > a, .navbar-brand
+{
+  color: #ddd !important;
+  font-weight: 900;
+}
+
+.navbar-brand
+{
+  color: #ddd !important;
+  font-weight: 300;
+}
+
+.navbar-nav > li > a:hover
+{
+  color: #fff !important;
+}
+
+.sidebar ul
+{
+  list-style: none;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-bottom: 0;
+  margin-left: 20px;
+}
+
+.sidebar a
+{
+  display: block;
+  padding: 19px 14px 15px 14px;
+  margin-left: -15px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #dae1e8;
+  box-shadow: 0 2px 1px -1px #FFFFFF;
+  color: #6e829b;
+  outline: 0px;
+  line-height: 21px;
+}
+
+.sidebar li.active a
+{
+position: relative;
+}
+
+@media (min-width: 992px)
+{
+
+/* the arrow foreground */
+.sidebar li.active a:after
+{
+  position: absolute;
+  right: -31px;
+  top: 14px;
+  z-index: 100;
+  content: '';
+  width: 0; 
+  height: 0; 
+  border-bottom: 15px solid transparent;  /* left arrow slant */
+  border-top: 15px solid transparent; /* right arrow slant */
+  border-right: 15px solid #fff; /* bottom, add background color here */
+  font-size: 0;
+  line-height: 0; 
+}
+
+/* the arrow background */
+.sidebar li.active a:before
+{
+  position: absolute;
+  right: -31px;
+  top: 12px;
+  z-index: 99;
+  content: '';
+  width: 0; 
+  height: 0; 
+  border-bottom: 17px solid transparent;  /* left arrow slant */
+  border-top: 17px solid transparent; /* right arrow slant */
+  border-right: 17px solid #dae3e9; /* bottom, add background color here */
+  font-size: 0;
+  line-height: 0; 
+}
+

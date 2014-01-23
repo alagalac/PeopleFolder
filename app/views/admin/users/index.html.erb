@@ -1,0 +1,29 @@
+<% provide(:title, 'Users') %>
+
+<h1>Manage users</h1>
+
+<ol class="breadcrumb">
+  <li><a href="#">Home</a></li>
+  <li class="active">Users</li>
+</ol>
+
+<%= render partial: 'shared/flash' %>
+
+<p>Would you like to <%= link_to("add a new user?", new_admin_user_path) %></p>
+
+<br/>
+
+<div class="table-responsive">
+  <table class="table">
+    
+    <% @users.each do |user| %>
+    <tr>
+      <td>
+        <%= link_to(user.full_name, edit_admin_user_path(user)) %>
+      </td>
+      <td><%= user.user_group.name %></td>
+    </tr>
+    <% end %>
+    
+  </table>
+</div>
