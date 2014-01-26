@@ -33,7 +33,7 @@
 <% end %>
 
 <script type="text/javascript">
-$( document ).ready(function() {
+$( document ).on('ready page:load', function () {
     var converter1 = new Markdown.Converter();
     
     var editor1 = new Markdown.Editor(converter1);

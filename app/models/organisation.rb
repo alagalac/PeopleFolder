@@ -8,4 +8,6 @@ class Organisation < ActiveRecord::Base
   has_many :feedbacks
   has_many :ideas
   has_many :comments
+
+  validates :name, presence: true
 end

@@ -4,12 +4,14 @@
 
 <ol class="breadcrumb">
   <li><a href="#">Home</a></li>
-  <li><%= link_to "Wiki", pages_path %></li>
+  <li><%= link_to "Guides", pages_path %></li>
   <li class="active">New</li>
 </ol>
 
 
 <%= form_for(@page, :url => pages_path, :html => {:multipart => true, :class => "form-horizontal"}) do |f| %>
+
+  <%= render partial: 'shared/errors', locals: {object: @page} %>
 
   <div class="form-group">
     <div class="col-sm-8">
@@ -38,12 +40,11 @@
 
 
 <script type="text/javascript">
-$(function() {
+$( document ).on('ready page:load', function () {
     var converter1 = new Markdown.Converter();
     
     var editor1 = new Markdown.Editor(converter1);
     
     editor1.run();
 });
-
 </script>

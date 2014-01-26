@@ -10,6 +10,8 @@
 
 <%= form_for(@question, :url => questions_path, :html => {:multipart => true, :class => "form-horizontal"}) do |f| %>
 
+  <%= render partial: 'shared/errors', locals: {object: @question} %>
+
   <div class="form-group">
     <div class="col-sm-8">
       <%= f.text_field :title, :class => "form-control", :placeholder => "Title" %>

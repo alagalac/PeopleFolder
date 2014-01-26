@@ -4,7 +4,7 @@
 
 <ol class="breadcrumb">
   <li><a href="#">Home</a></li>
-  <li><%= link_to "Wiki", pages_path %></li>
+  <li><%= link_to "Guides", pages_path %></li>
   <li class="active"><%= @page.name.humanize() %></li>
 </ol>
 
@@ -15,14 +15,3 @@
 
 
 <%= link_to "Edit page", edit_page_path(@page), :class => "btn btn-primary" %>
-
-<script type="text/javascript">
-$(function() {
-  var converter;
-  converter = new Markdown.Converter();
-  return $(".markdown_content").each(function() {
-    return $(this).html(converter.makeHtml($(this).html()));
-  });
-});
-
-</script>

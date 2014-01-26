@@ -23,6 +23,12 @@ jQuery ->
     hiddenDiv.html content + "<br class=\"lbr\">"
     $("#wmd-input").css "height", hiddenDiv.height() + 15
 
+  txt.trigger "keyup"
 
+
+jQuery ->
+  converter = new Markdown.Converter()
+  $(".markdown_content").each ->
+    $(this).html converter.makeHtml($(this).text())
 
 

@@ -49,3 +49,4 @@ end
 # custom gems
 gem 'devise', '~> 3.0.0'
 gem "pundit", "~> 0.2.1"
+gem 'jquery-turbolinks'
