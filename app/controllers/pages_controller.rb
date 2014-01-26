@@ -30,7 +30,7 @@ class PagesController < ApplicationController
     authorize @page, :create?
 
     if @page.save
-      flash.now[:success] = "Page created successfully."
+      flash[:success] = "Page created successfully."
       redirect_to page_path(@page)
     else
       flash.now[:danger] = "Unable to create page."

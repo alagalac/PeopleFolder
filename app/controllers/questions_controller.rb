@@ -25,7 +25,7 @@ class QuestionsController < ApplicationController
     authorize @question, :create?
 
     if @question.save
-      flash.now[:success] = "Question submitted successfully."
+      flash[:success] = "Question submitted successfully."
       redirect_to question_path(@question)
     else
       flash.now[:danger] = "Unable to submit question."

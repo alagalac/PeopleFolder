@@ -25,7 +25,7 @@ class FeedbacksController < ApplicationController
     authorize @feedback, :create?
 
     if @feedback.save
-      flash.now[:success] = "Feedback submitted successfully."
+      flash[:success] = "Feedback submitted successfully."
       redirect_to new_feedback_path
     else
       flash.now[:danger] = "Unable to submit feedback."

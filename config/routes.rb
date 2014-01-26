@@ -34,6 +34,9 @@ PeopleFolder::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'front_end#index'
+  get "pricing", :to => "front_end#pricing"
+
+  get "help", :to => "static_pages#help"
 
 
   # Example of regular route:

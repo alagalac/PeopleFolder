@@ -2,9 +2,9 @@ class RegistrationsController < Devise::RegistrationsController
   layout 'devise'
 
   def new
-
     @organisation = Organisation.new()
     super
+    
   end
 
   def create
@@ -12,14 +12,14 @@ class RegistrationsController < Devise::RegistrationsController
 
     # Build user
     #build_resource
-    @user = User.new(params[:user])
+    @user = User.new(user_params)
 
     # Build organisation
-    @organisation = Organisation.create(params[:organisation])
+    @organisation = Organisation.create(:name => params[:organisation][:name])
 
     # Build user groups
-    @admin_user_group = Usergroup.create(:name => @organisation.name + " Admin", :group_type => "admin")
-    @normal_user_group = Usergroup.create(:name => @organisation.name + " Admin", :group_type => "user")
+    @admin_user_group = UserGroup.create(:name => @organisation.name + " Admin", :group_type => "admin", :organisation => @organisation)
+    @normal_user_group = UserGroup.create(:name => @organisation.name + " User", :group_type => "user", :organisation => @organisation)
 
 
     @user.organisation = @organisation
@@ -41,6 +41,13 @@ class RegistrationsController < Devise::RegistrationsController
       clean_up_passwords @user
       respond_with @user
     end
+  end
+
+
+  private
+
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
   end
 
 

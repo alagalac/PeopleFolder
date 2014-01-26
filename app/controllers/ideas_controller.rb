@@ -28,7 +28,7 @@ class IdeasController < ApplicationController
     authorize @idea, :create?
 
     if @idea.save
-      flash.now[:success] = "Idea submitted successfully."
+      flash[:success] = "Idea submitted successfully."
       redirect_to idea_path(@idea)
     else
       flash.now[:danger] = "Unable to submit idea."
