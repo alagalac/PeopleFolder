@@ -57,3 +57,6 @@ end
 gem 'devise', '~> 3.0.0'
 gem "pundit", "~> 0.2.1"
 gem 'jquery-turbolinks'
+
+#required for heroku
+gem 'rails_12factor', group: :production
