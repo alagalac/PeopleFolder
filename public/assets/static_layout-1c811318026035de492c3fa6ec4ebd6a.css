@@ -1,0 +1,49 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300);
+/* Box styles */
+.box {
+  border: 1px solid #b0b2b5;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 20px; }
+
+.box a {
+  color: #333333; }
+
+.dialog-form, .dialog-links {
+  position: relative; }
+
+.dialog-form label {
+  font-weight: bold; }
+
+.dialog-submit {
+  border-top: 1px solid #ccc;
+  background: rgba(238, 238, 238, 0.65);
+  margin: 5px -20px -20px -20px;
+  padding: 18px 20px;
+  border-radius: 0 0 4px 4px; }
+
+.dialog-submit label {
+  padding-top: 4px;
+  float: right; }
+
+.dialog-links, .dialog-links a {
+  text-align: center;
+  color: #aaa; }
+
+.dialog-links a:hover {
+  color: #fff; }
+
+body {
+  background-color: #26517C !important; }
+
+.title h1 {
+  margin-top: 50px;
+  text-align: center; }
+
+.title h1 a {
+  color: #fff;
+  font-size: 50px;
+  font-weight: 300;
+  font-family: 'Open Sans','Droid Sans',arial,sans-serif; }

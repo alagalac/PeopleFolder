@@ -1,0 +1,223 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+
+
+
+
+ */
+
+
+body
+{
+  background-color: #f7f7f7 !important;
+}
+
+.content
+{
+  background-color: #fff;
+  border: 1px solid #dae3e9;
+  box-shadow: -3px 3px 3px -2px #f1f1f3;
+  border-radius: 5px;
+  min-width: 400px;
+  min-height: 620px;
+  margin-bottom: 100px;
+  padding-bottom: 50px;
+  overflow: hidden;
+  position: relative;
+}
+.navbar-inverse
+{
+  background-color: #2c3742;
+}
+
+.navbar-nav>.open>a
+{
+  background-color: #04376C !important;
+}
+
+.navbar-nav > li > a, .navbar-brand
+{
+  color: #ddd !important;
+  font-weight: 900;
+}
+
+.navbar-brand
+{
+  color: #ddd !important;
+  font-weight: 300;
+}
+
+.navbar-nav > li > a:hover
+{
+  color: #fff !important;
+}
+
+.sidebar ul
+{
+  list-style: none;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-bottom: 0;
+  margin-left: 20px;
+}
+
+.sidebar a
+{
+  display: block;
+  padding: 19px 14px 15px 14px;
+  margin-left: -15px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #dae1e8;
+  box-shadow: 0 2px 1px -1px #FFFFFF;
+  color: #6e829b;
+  outline: 0px;
+  line-height: 21px;
+}
+
+.sidebar li.active a
+{
+position: relative;
+}
+
+@media (min-width: 992px)
+{
+
+/* the arrow foreground */
+.sidebar li.active a:after
+{
+  position: absolute;
+  right: -31px;
+  top: 14px;
+  z-index: 100;
+  content: '';
+  width: 0; 
+  height: 0; 
+  border-bottom: 15px solid transparent;  /* left arrow slant */
+  border-top: 15px solid transparent; /* right arrow slant */
+  border-right: 15px solid #fff; /* bottom, add background color here */
+  font-size: 0;
+  line-height: 0; 
+}
+
+/* the arrow background */
+.sidebar li.active a:before
+{
+  position: absolute;
+  right: -31px;
+  top: 12px;
+  z-index: 99;
+  content: '';
+  width: 0; 
+  height: 0; 
+  border-bottom: 17px solid transparent;  /* left arrow slant */
+  border-top: 17px solid transparent; /* right arrow slant */
+  border-right: 17px solid #dae3e9; /* bottom, add background color here */
+  font-size: 0;
+  line-height: 0; 
+}
+
+}
+
+
+.navbar-inverse {
+
+  background: #26517C; /* Old browsers */
+  background: -moz-linear-gradient(top,  #26517C 0%, #04376C 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#26517C), color-stop(100%,#04376C)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #26517C 0%,#04376C 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #26517C 0%,#04376C 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #26517C 0%,#04376C 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  #26517C 0%,#04376C 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#26517C', endColorstr='#04376C',GradientType=0 ); /* IE6-9 */
+}
+.wmd-button-bar {
+  width: 100%;
+  background-color: Silver; }
+
+.wmd-input {
+  height: 300px;
+  width: 100%;
+  background-color: Gainsboro;
+  border: 1px solid DarkGray;
+  resize: none; }
+
+.wmd-button-row {
+  position: relative;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  margin-top: 10px;
+  padding: 0px;
+  height: 20px; }
+
+.wmd-spacer {
+  width: 1px;
+  height: 20px;
+  margin-left: 14px;
+  position: absolute;
+  background-color: Silver;
+  display: inline-block;
+  list-style: none; }
+
+.wmd-button {
+  width: 20px;
+  height: 20px;
+  padding-left: 2px;
+  padding-right: 3px;
+  position: absolute;
+  display: inline-block;
+  list-style: none;
+  cursor: pointer; }
+
+.wmd-button > span {
+  background-image: url(/assets/wmd-buttons.png);
+  background-repeat: no-repeat;
+  background-position: 0px 0px;
+  width: 20px;
+  height: 20px;
+  display: inline-block; }
+
+.wmd-spacer1 {
+  left: 50px; }
+
+.wmd-spacer2 {
+  left: 175px; }
+
+.wmd-spacer3 {
+  left: 300px; }
+
+.wmd-prompt-background {
+  background-color: Black; }
+
+.wmd-prompt-dialog {
+  border: 1px solid #999999;
+  background-color: #F5F5F5; }
+
+.wmd-prompt-dialog > div {
+  font-size: 0.8em;
+  font-family: arial, helvetica, sans-serif; }
+
+.wmd-prompt-dialog > form > input[type="text"] {
+  border: 1px solid #999999;
+  color: black; }
+
+.wmd-prompt-dialog > form > input[type="button"] {
+  border: 1px solid #888888;
+  font-family: trebuchet MS, helvetica, sans-serif;
+  font-size: 0.8em;
+  font-weight: bold; }
+
+.hiddendiv {
+  display: none;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  /* future version of deprecated 'word-wrap' */ }
