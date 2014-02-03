@@ -5,7 +5,7 @@ class IdeasController < ApplicationController
 
 
   def index
-    @ideas = policy_scope(Idea).order(votes_count: :desc)
+    @ideas = policy_scope(Idea).order(votes_count: :desc).page params[:page]
   end
 
   def show

@@ -5,6 +5,8 @@ class Idea < ActiveRecord::Base
   has_many :votes, :as => :entity, :dependent => :destroy, :autosave => true
   has_many :comments, :as => :entity, :dependent => :destroy, :autosave => true
 
+  paginates_per 15
+
   validates :title, presence: true
   validates :content, presence: true
 

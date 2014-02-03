@@ -4,6 +4,8 @@ class Page < ActiveRecord::Base
   validates :title, presence: true
   validates :content, presence: true
 
+  paginates_per 15
+
 
   def to_param
     name

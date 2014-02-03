@@ -4,7 +4,7 @@ class QuestionsController < ApplicationController
   after_filter :verify_policy_scoped, :only => :index
 
   def index
-    @questions = policy_scope(Question).order(votes_count: :desc)
+    @questions = policy_scope(Question).order(votes_count: :desc).page params[:page]
   end
 
   def show

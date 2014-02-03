@@ -5,7 +5,7 @@ class PagesController < ApplicationController
 
 
   def index
-    @pages = policy_scope(Page)
+    @pages = policy_scope(Page).page params[:page]
 
   end
 

@@ -56,7 +56,8 @@ end
 # custom gems
 gem 'devise', '~> 3.0.0'
 gem "pundit", "~> 0.2.1"
-gem 'jquery-turbolinks'
+gem 'jquery-turbolinks', "~> 2.0.1"
+gem 'kaminari', "~> 0.15.1"
 
 #required for heroku
 gem 'rails_12factor', group: :production

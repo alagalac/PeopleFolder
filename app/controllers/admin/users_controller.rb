@@ -1,7 +1,7 @@
 class Admin::UsersController < ApplicationController
 
   def index
-    @users = User.where(organisation_id: current_user.organisation_id)
+    @users = User.where(organisation_id: current_user.organisation_id).page params[:page]
   end
 
   def new
