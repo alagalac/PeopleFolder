@@ -6,7 +6,7 @@ PeopleFolder::Application.routes.draw do
   devise_scope :user do
     get "log_in", :to => "devise/sessions#new"
     get "log_out", :to => "devise/sessions#destroy"
-    get "registration", :to => "registrations#new"
+    get "sign_up", :to => "registrations#new"
   end
 
 

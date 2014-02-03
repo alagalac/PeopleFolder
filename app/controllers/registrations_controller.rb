@@ -1,5 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
-  layout 'devise'
+  layout 'application', only: [:edit, :update]
 
   def new
     @organisation = Organisation.new()
