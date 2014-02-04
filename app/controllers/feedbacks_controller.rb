@@ -1,10 +1,11 @@
 class FeedbacksController < ApplicationController
 
-  after_filter :verify_authorized, :except => :index
+  after_filter :verify_authorized
   after_filter :verify_policy_scoped, :only => :index
 
   def index
     @feedbacks = policy_scope(Feedback).page params[:page]
+    authorize @feedbacks, :index?
   end
 
   def new

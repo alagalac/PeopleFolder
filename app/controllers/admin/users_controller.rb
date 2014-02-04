@@ -1,12 +1,17 @@
 class Admin::UsersController < ApplicationController
 
+  after_filter :verify_authorized
+  after_filter :verify_policy_scoped, :only => :index
+
   def index
-    @users = User.where(organisation_id: current_user.organisation_id).page params[:page]
+    @users = policy_scope(User).page params[:page]
+    authorize @users, :index?
   end
 
   def new
     @user = User.new()
     @user_groups = UserGroup.where(organisation_id: current_user.organisation_id)
+    authorize @user, :new?
   end
 
   def create
@@ -15,6 +20,8 @@ class Admin::UsersController < ApplicationController
 
 
     @user.organisation = current_user.organisation
+
+    authorize @user, :create?
 
     if @user.save
       flash.now[:success] = "User created successfully."
@@ -28,15 +35,19 @@ class Admin::UsersController < ApplicationController
 
   def edit
     
-    @user = User.where(organisation_id: current_user.organisation_id, id: params[:id]).first
+    @user = User.find(params[:id])
     @user_groups = UserGroup.where(organisation_id: current_user.organisation_id)
+
+    authorize @user, :edit?
 
   end
 
   def update
 
-    @user = User.where(organisation_id: current_user.organisation_id, id: params[:id]).first
+    @user = User.find(params[:id])
     @user_groups = UserGroup.where(organisation_id: current_user.organisation_id)
+
+    authorize @user, :update?
 
     if @user.update_attributes(user_params)
       flash[:success] = "User updated"
@@ -45,18 +56,20 @@ class Admin::UsersController < ApplicationController
       flash.now[:danger] = "Unable to update user."
       render 'edit'
     end
-
-    def destroy
-
-      @user = User.find(params[:id])
-      @user.destroy
-
-      flash[:success] = "User deleted successfully."
-      redirect_to admin_users_path
-    end
-    
-
   end
+
+  def destroy
+
+    @user = User.find(params[:id])
+
+    authorize @user, :destroy?
+
+    @user.destroy
+
+    flash[:success] = "User deleted successfully."
+    redirect_to admin_users_path
+  end
+
 
 
   private

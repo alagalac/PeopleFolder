@@ -1,5 +1,9 @@
 class FeedbackPolicy < Struct.new(:user, :feedback)
 
+  def index?
+    user.user_group.is_admin
+  end
+
   def new?
     true
   end
