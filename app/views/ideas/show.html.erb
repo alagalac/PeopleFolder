@@ -10,31 +10,6 @@
 
 <p><%=@idea.content %></p>
 
-<ul class="list-group" id="comments">
-  <% @idea.comments.each do |comment| %>
-  <li class="list-group-item">
-    <%= comment.content %>
-    <% if policy(comment).destroy? %>
-      <%= link_to "Remove", comment_path(comment) + ".json", :method => :delete, :remote => true, :class => 'pull-right delete_comment'  %>
-    <% end %>
-  </li>
-  <% end %>
-</ul>
+<%= render partial: 'comments/comments', locals: {object: @idea} %>
 
-
-<%= form_for(Comment.new(), :url => comments_path, :remote => true, :html => {:multipart => true, :class => "form-horizontal idea-comment", :'data-type' => 'json'}) do |f| %>
-
-  <div class="form-group">
-    <div class="col-sm-6">
-      <%= f.text_area :content, :class => "form-control", :rows => 5, :placeholder => "Your comment..." %>
-    </div>
-  </div>
-  <%= f.hidden_field :entity_type, :value => "Idea" %>
-  <%= f.hidden_field :entity_id, :value => @idea.id %>
-
-  <div class="form-group">
-    <div class="col-sm-6">
-      <%= submit_tag "Add comment", :class => "btn btn-primary pull-right" %>
-    </div>
-  </div>
-<% end %>
+<%= render partial: 'comments/new', locals: {object: @idea} %>

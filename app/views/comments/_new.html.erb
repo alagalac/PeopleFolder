@@ -1,0 +1,17 @@
+
+<%= form_for(Comment.new(), :url => comments_path, :remote => true, :html => {:multipart => true, :class => "form-horizontal new-comment", :'data-type' => 'json'}) do |f| %>
+
+  <div class="form-group">
+    <div class="col-sm-6">
+      <%= f.text_area :content, :class => "form-control", :rows => 5, :placeholder => "Your comment..." %>
+    </div>
+  </div>
+  <%= f.hidden_field :entity_type, :value => object.class.name %>
+  <%= f.hidden_field :entity_id, :value => object.id %>
+
+  <div class="form-group">
+    <div class="col-sm-6">
+      <%= submit_tag "Add comment", :class => "btn btn-primary pull-right" %>
+    </div>
+  </div>
+<% end %>
