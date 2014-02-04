@@ -1,5 +1,5 @@
 
-<%= form_for(Comment.new(), :url => comments_path, :remote => true, :html => {:multipart => true, :class => "form-horizontal new-comment", :'data-type' => 'json'}) do |f| %>
+<%= form_for(Comment.new(), :url => comments_path, :remote => true, :html => {:multipart => true, :class => "form-horizontal new-comment"}) do |f| %>
 
   <div class="form-group">
     <div class="col-sm-6">

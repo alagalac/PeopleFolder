@@ -4,16 +4,12 @@
 
 jQuery ->
   $("#new_comment").bind "ajax:success", (evt, data, status, xhr) ->
-    comment = $("<li>",
-        class: "list-group-item"
-      ).html data.content
 
-
-    $('#comments').append comment
+    $('#comments').append data
 
     $('#comment_content').val ''
 
 
 jQuery ->
   $(".delete_comment").bind "ajax:success", (evt, data, status, xhr) ->
-    $(evt.target).parent().remove()
+    $(evt.target).parents(".comment").remove()

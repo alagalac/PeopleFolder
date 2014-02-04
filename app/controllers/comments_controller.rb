@@ -11,10 +11,10 @@ class CommentsController < ApplicationController
     authorize @comment, :create?
 
     if @comment.save
-      render :json => @comment
+      render @comment
     else
 
-      render json: {status: 500}
+      render ""
     end
 
   end

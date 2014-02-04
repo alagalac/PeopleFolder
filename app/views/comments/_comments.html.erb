@@ -1,12 +1,7 @@
 
 
 <ul class="list-group" id="comments">
-  <% object.comments.each do |comment| %>
-  <li class="list-group-item">
-    <%= comment.content %>
-    <% if policy(comment).destroy? %>
-      <%= link_to "Remove", comment_path(comment) + ".json", :method => :delete, :remote => true, :class => 'pull-right delete_comment'  %>
-    <% end %>
-  </li>
+  <% comments.each do |comment| %>
+  	<%= render comment %>
   <% end %>
 </ul>

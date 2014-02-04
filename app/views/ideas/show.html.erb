@@ -10,6 +10,6 @@
 
 <p><%=@idea.content %></p>
 
-<%= render partial: 'comments/comments', locals: {object: @idea} %>
+<%= render partial: 'comments/comments', object: @idea.comments %>
 
 <%= render partial: 'comments/new', locals: {object: @idea} %>

@@ -1,0 +1,8 @@
+<li class="list-group-item comment">
+	<div>
+	<%= comment.creator.full_name %> : 
+  <%= comment.content %>
+  <% if policy(comment).destroy? %>
+    <%= link_to "Remove", comment_path(comment) + ".json", :method => :delete, :remote => true, :class => 'pull-right delete_comment'  %>
+  <% end %>
+</li>
