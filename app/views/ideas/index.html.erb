@@ -19,13 +19,13 @@
       <% if (current_user.votes & idea.votes).count == 1 %>
       <td class="col-sm-1">
         <%= link_to vote_idea_path(idea) + ".json", method: :post, :remote => true, :class=>"vote-button btn-success btn btn-xs "  do %>
-          <span class="glyphicon glyphicon-star"></span> <%= idea.votes.count %>
+          <span class="glyphicon glyphicon-star"></span> <%= idea.votes_count %>
         <% end %>
       </td>
       <% else %>
       <td class="col-sm-1">
         <%= link_to vote_idea_path(idea) + ".json", method: :post, :remote => true, :class=>"vote-button btn-default btn btn-xs "  do %>
-          <span class="glyphicon glyphicon-star"></span> <%= idea.votes.count %>
+          <span class="glyphicon glyphicon-star"></span> <%= idea.votes_count %>
         <% end %>
       </td>
       <% end %>
