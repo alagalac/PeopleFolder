@@ -26,8 +26,7 @@ body
   box-shadow: -3px 3px 3px -2px #f1f1f3;
   border-radius: 5px;
   min-width: 400px;
-  min-height: 620px;
-  margin-bottom: 100px;
+  min-height: 400px !important;
   padding-bottom: 50px;
   overflow: hidden;
   position: relative;
