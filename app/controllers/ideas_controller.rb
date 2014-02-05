@@ -47,6 +47,24 @@ class IdeasController < ApplicationController
     redirect_to ideas_path
   end
 
+  def edit
+    @idea = Idea.find(params[:id])
+    authorize @idea, :edit?
+  end
+
+  def update
+    @idea = Idea.find(params[:id])
+    authorize @idea, :update?
+
+    if @idea.update_attributes(idea_params)
+      flash[:success] = "Idea updated."
+      redirect_to idea_path(@idea)
+    else
+      flash.now[:danger] = "Unable to update idea."
+      render 'edit'
+    end
+  end
+
   def vote
     @idea = Idea.find(params[:id])
 

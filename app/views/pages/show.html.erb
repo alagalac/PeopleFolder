@@ -11,5 +11,6 @@
 
 <div class="markdown_content"><%= @page.content %></div>
 
-
-<%= link_to "Edit page", edit_page_path(@page), :class => "btn btn-primary" %>
+<% if policy(@page).edit? %>
+	<%= link_to "Edit page", edit_page_path(@page), :class => "btn btn-primary" %>
+<% end %>

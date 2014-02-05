@@ -10,7 +10,9 @@
 
 <p><%=@question.content %></p>
 
-<%= link_to "Edit question", edit_question_path(@question), :class => "btn btn-primary" %>
+<% if policy(@question).edit? %>
+	<%= link_to "Edit question", edit_question_path(@question), :class => "btn btn-primary" %>
+<% end %>
 
 <%= render partial: 'comments/comments', object: @question.comments %>
 

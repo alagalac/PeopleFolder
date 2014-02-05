@@ -34,13 +34,7 @@ class IdeaPolicy < Struct.new(:user, :idea)
   end
 
   def update?
-    if user.user_group.is_admin and user.organisation.ideas.include? idea
-      true
-    elsif user.ideas.include? idea
-      true
-    else
-      false
-    end
+    edit?
   end
 
   def vote?

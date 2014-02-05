@@ -5,10 +5,14 @@
 <ol class="breadcrumb">
   <li><a href="#">Home</a></li>
   <li><%= link_to "Ideas", ideas_path %></li>
-  <li class="active">Idea</li>
+  <li class="active"><%= @idea.title.humanize() %></li>
 </ol>
 
 <p><%=@idea.content %></p>
+
+<% if policy(@idea).edit? %>
+	<%= link_to "Edit idea", edit_idea_path(@idea), :class => "btn btn-primary" %>
+<% end %>
 
 <%= render partial: 'comments/comments', object: @idea.comments %>
 

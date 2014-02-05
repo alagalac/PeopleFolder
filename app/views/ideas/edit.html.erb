@@ -1,0 +1,44 @@
+<% provide(:title, 'Edit Idea') %>
+
+<h1>Edit Idea</h1>
+
+<ol class="breadcrumb">
+  <li><a href="#">Home</a></li>
+  <li><%= link_to "Ideas", ideas_path %></li>
+  <li><%= link_to @idea.title.humanize(), idea_path(@idea) %></li>
+  <li class="active">Edit</li>
+</ol>
+
+<%= form_for(@idea, :url => idea_path(@idea), :html => {:multipart => true, :class => "form-horizontal"}) do |f| %>
+
+  <%= render partial: 'shared/errors', locals: {object: @idea} %>
+
+  <div class="form-group">
+    <div class="col-sm-8">
+      <%= f.text_field :title, :class => "form-control", :placeholder => "Title" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-8">
+      <%= f.text_area :content, :class => "form-control", :rows => 5, :placeholder => "Your idea..." %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-8">
+      <div class="btn-toolbar pull-right">
+        <div class="btn-group"> 
+          <%= link_to "Cancel", idea_path(@idea), :class => "btn btn-default" %>
+        </div>
+        <div class="btn-group"> 
+          <%= submit_tag "Save idea", :class => "btn btn-primary" %>
+        </div>
+      </div>
+      <% if policy(@idea).destroy? %>
+      <%= link_to "Delete idea", idea_path(@idea), :data => { :confirm => "This will permanently delete this idea. Are you sure?" }, :method => :delete, :class => "delete-link" %>
+      <% end %>
+    </div>
+  </div>
+  
+<% end %>
