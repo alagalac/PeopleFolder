@@ -33,7 +33,18 @@
     </div>
   </div>
 
-  <%= submit_tag "Create page", :class => "btn btn-primary" %>
+  <div class="form-group">
+    <div class = "col-sm-8">
+      <div class="btn-toolbar pull-right">
+        <div class="btn-group"> 
+          <%= link_to "Cancel", pages_path, :class => "btn btn-default" %>
+        </div>
+        <div class="btn-group"> 
+          <%= submit_tag "Create page", :class => "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+  </div>
 
   
 <% end %>

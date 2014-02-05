@@ -1,0 +1,44 @@
+<% provide(:title, 'Edit Question') %>
+
+<h1>Edit Question</h1>
+
+<ol class="breadcrumb">
+  <li><a href="#">Home</a></li>
+  <li><%= link_to "Questions", questions_path %></li>
+  <li><%= link_to @question.title.humanize(), question_path(@question) %></li>
+  <li class="active">Edit</li>
+</ol>
+
+<%= form_for(@question, :url => question_path(@question), :html => {:multipart => true, :class => "form-horizontal"}) do |f| %>
+
+  <%= render partial: 'shared/errors', locals: {object: @question} %>
+
+  <div class="form-group">
+    <div class="col-sm-8">
+      <%= f.text_field :title, :class => "form-control", :placeholder => "Title" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-8">
+      <%= f.text_area :content, :class => "form-control", :rows => 5, :placeholder => "Your question..." %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-8">
+      <div class="btn-toolbar pull-right">
+        <div class="btn-group"> 
+          <%= link_to "Cancel", question_path(@question), :class => "btn btn-default" %>
+        </div>
+        <div class="btn-group"> 
+          <%= submit_tag "Save question", :class => "btn btn-primary" %>
+        </div>
+      </div>
+      <% if policy(@question).destroy? %>
+      <%= link_to "Delete question", question_path(@question), :data => { :confirm => "This will permanently delete this question. Are you sure?" }, :method => :delete, :class => "delete-link" %>
+      <% end %>
+    </div>
+  </div>
+  
+<% end %>

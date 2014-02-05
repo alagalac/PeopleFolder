@@ -124,3 +124,8 @@ position: relative;
 }
 
 }
+
+.delete-link, .delete-link:hover
+{
+  color: #d2322d;
+}

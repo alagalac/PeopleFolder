@@ -5,10 +5,12 @@
 <ol class="breadcrumb">
   <li><a href="#">Home</a></li>
   <li><%= link_to "Questions", questions_path %></li>
-  <li class="active">Question</li>
+  <li class="active"><%= @question.title.humanize() %></li>
 </ol>
 
 <p><%=@question.content %></p>
+
+<%= link_to "Edit question", edit_question_path(@question), :class => "btn btn-primary" %>
 
 <%= render partial: 'comments/comments', object: @question.comments %>
 

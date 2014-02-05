@@ -23,6 +23,11 @@
         <% end %>
 
       </td>
+      <td>
+        <% if policy(feedback).destroy? %>
+          <%= link_to "Remove", feedback_path(feedback), :data => { :confirm => "This will permanently delete this feedback. Are you sure?" }, :method => :delete, :class => "delete-link" %>
+        <% end %>
+      </td>
     </tr>
     <% end %>
     

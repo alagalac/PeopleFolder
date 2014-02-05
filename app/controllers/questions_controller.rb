@@ -45,6 +45,24 @@ class QuestionsController < ApplicationController
 
   end
 
+  def edit
+    @question = Question.find(params[:id])
+    authorize @question, :edit?
+  end
+
+  def update
+    @question = Question.find(params[:id])
+    authorize @question, :update?
+
+    if @question.update_attributes(question_params)
+      flash[:success] = "Question updated."
+      redirect_to question_path(@question)
+    else
+      flash.now[:danger] = "Unable to update question."
+      render 'edit'
+    end
+  end
+
   def vote
     @question = Question.find(params[:id])
 

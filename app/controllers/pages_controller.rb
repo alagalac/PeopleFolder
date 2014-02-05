@@ -50,7 +50,7 @@ class PagesController < ApplicationController
     authorize @page, :update?
 
     if @page.update_attributes(page_params)
-      flash[:success] = "Page updated"
+      flash[:success] = "Page updated."
       redirect_to page_path(@page)
     else
       flash.now[:danger] = "Unable to update page."

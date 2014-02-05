@@ -22,6 +22,20 @@ class QuestionPolicy < Struct.new(:user, :question)
     user.organisation.questions.include? question
   end
 
+  def edit?
+    if user.user_group.is_admin and user.organisation.questions.include? question
+      true
+    elsif user.questions.include? question
+      true
+    else
+      false
+    end
+  end
+
+  def update?
+    edit?
+  end
+
   def vote?
     user.organisation.questions.include? question
   end
