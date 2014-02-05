@@ -42,7 +42,7 @@
         </div>
       </div>
       <% if policy(@page).destroy? %>
-      <%= link_to "Delete page", page_path(@page), :data => { :confirm => "This will permanently delete this page. Are you sure?" }, :method => :delete, :class => "delete-link" %>
+      <%= link_to "Delete page", page_path(@page), :data => { :confirm => "This will permanently delete this page. Are you sure?" }, :method => :delete, :class => "text-danger" %>
       <% end %>
     </div>
   </div>

@@ -36,7 +36,7 @@
         </div>
       </div>
       <% if policy(@question).destroy? %>
-      <%= link_to "Delete question", question_path(@question), :data => { :confirm => "This will permanently delete this question. Are you sure?" }, :method => :delete, :class => "delete-link" %>
+      <%= link_to "Delete question", question_path(@question), :data => { :confirm => "This will permanently delete this question. Are you sure?" }, :method => :delete, :class => "text-danger" %>
       <% end %>
     </div>
   </div>

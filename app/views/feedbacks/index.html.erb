@@ -25,7 +25,7 @@
       </td>
       <td>
         <% if policy(feedback).destroy? %>
-          <%= link_to "Remove", feedback_path(feedback), :data => { :confirm => "This will permanently delete this feedback. Are you sure?" }, :method => :delete, :class => "delete-link" %>
+          <%= link_to "Remove", feedback_path(feedback), :data => { :confirm => "This will permanently delete this feedback. Are you sure?" }, :method => :delete, :class => "text-danger" %>
         <% end %>
       </td>
     </tr>
