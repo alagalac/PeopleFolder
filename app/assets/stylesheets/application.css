@@ -124,7 +124,7 @@ position: relative;
 
 }
 
-.delete-link, .delete-link:hover
+#comments
 {
-  color: #d2322d;
+  margin-top: 10px;
 }
