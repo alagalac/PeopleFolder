@@ -18,6 +18,8 @@ PeopleFolder::Application.routes.draw do
     resources :users, except: [:show]
   end
 
+  resources :recognitions
+
   resources :feedbacks, except: [:edit, :update, :show]
 
   resources :questions do

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140119091249) do
+ActiveRecord::Schema.define(version: 20140209040211) do
 
   create_table "comments", force: true do |t|
     t.string   "entity_type",                 null: false
@@ -66,6 +66,16 @@ ActiveRecord::Schema.define(version: 20140119091249) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "votes_count",     default: 0
+  end
+
+  create_table "recognitions", force: true do |t|
+    t.integer  "creator_id",      null: false
+    t.integer  "organisation_id", null: false
+    t.integer  "recognised_id",   null: false
+    t.string   "content",         null: false
+    t.integer  "points",          null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "user_groups", force: true do |t|

@@ -10,13 +10,13 @@ class Admin::UsersController < ApplicationController
 
   def new
     @user = User.new()
-    @user_groups = UserGroup.where(organisation_id: current_user.organisation_id)
+    @user_groups = policy_scope(UserGroup)
     authorize @user, :new?
   end
 
   def create
     @user = User.new(user_params)
-    @user_groups = UserGroup.where(organisation_id: current_user.organisation_id)
+    @user_groups = policy_scope(UserGroup)
 
 
     @user.organisation = current_user.organisation
@@ -36,7 +36,7 @@ class Admin::UsersController < ApplicationController
   def edit
     
     @user = User.find(params[:id])
-    @user_groups = UserGroup.where(organisation_id: current_user.organisation_id)
+    @user_groups = policy_scope(UserGroup)
 
     authorize @user, :edit?
 
@@ -45,7 +45,7 @@ class Admin::UsersController < ApplicationController
   def update
 
     @user = User.find(params[:id])
-    @user_groups = UserGroup.where(organisation_id: current_user.organisation_id)
+    @user_groups = policy_scope(UserGroup)
 
     authorize @user, :update?
 

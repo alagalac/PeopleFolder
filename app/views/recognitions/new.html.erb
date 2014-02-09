@@ -1,0 +1,47 @@
+<% provide(:title, 'New Recognition') %>
+
+<h1>Recognise Somebody</h1>
+
+<ol class="breadcrumb">
+  <li><a href="#">Home</a></li>
+  <li class="active">Give Recognition</li>
+</ol>
+
+<%= form_for(@recognition, :url => recognitions_path, :html => {:multipart => true, :class => "form-horizontal"}) do |f| %>
+
+  <%= render partial: 'shared/errors', locals: {object: @recognition} %>
+
+  <div class="form-group">
+    <%= f.label :recognised_id, "Person to recognise", :class=> "col-sm-2 control-label" %>
+    <div class="col-sm-6">
+      <%= f.collection_select :recognised_id, @users, :id, :full_name, {:prompt => "-- Select a person --"}, {:class => 'form-control'} %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-8">
+      <div class="btn-group" data-toggle="buttons">
+      <% Recognition::TYPE.each do |t| %>
+        <label class="btn btn-default">
+          <%= f.radio_button :points, t[1] %>
+            Award a <%= t[0] %>
+        </label>
+      <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-8">
+      <%= f.text_area :content, :class => "form-control", :rows => 5, :placeholder => "Your comments..." %>
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <div class="col-sm-8">
+      <%= submit_tag "Give Recognition", :class => "btn btn-primary pull-right" %>
+    </div>
+  </div>
+  
+<% end %>
