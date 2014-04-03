@@ -1,6 +1,6 @@
 <% provide(:title, 'Recognition') %>
 
-<h1>Recognition</h1>
+<h1>Recent Recognition</h1>
 
 <ol class="breadcrumb">
   <li><a href="#">Home</a></li>
@@ -16,7 +16,6 @@
 
     <thead>
       <th>Recognised</th>
-      <th>Recogniser</th>
       <th></th>
     </thead>
 
@@ -25,10 +24,6 @@
     <tr>
       <td class="col-sm-2">
         <%= r.recognised.full_name %>
-
-      </td>
-      <td class="col-sm-2">
-        <%= r.creator.full_name %>
 
       </td>
       

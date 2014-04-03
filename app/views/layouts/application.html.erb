@@ -10,14 +10,14 @@
   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/pagedown/1.0/Markdown.Converter.min.js"></script>
   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/pagedown/1.0/Markdown.Editor.min.js"></script>
 
-  <%= render 'layouts/analytics' %>
+  <%= render 'layouts/analytics' if Rails.env.production? %>
 
   
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= render 'layouts/header' if Rails.env.production? %>
+<%= render 'layouts/header' %>
 
 
 
