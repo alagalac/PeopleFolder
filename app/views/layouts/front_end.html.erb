@@ -6,6 +6,8 @@
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+
+  <%= render 'layouts/analytics' if Rails.env.production? %>
   
   <%= csrf_meta_tags %>
 </head>
