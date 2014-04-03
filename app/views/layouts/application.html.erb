@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>PeopleFolder | <%= yield(:title) %></title>
+  <title><%= yield(:title) %> | PeopleFolder</title>
+  <meta name="Description" content="Answer questions, build guides, harvest suggestions, and gather feedback for your organisation.">
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
@@ -9,12 +10,14 @@
   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/pagedown/1.0/Markdown.Converter.min.js"></script>
   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/pagedown/1.0/Markdown.Editor.min.js"></script>
 
+  <%= render 'layouts/analytics' %>
+
   
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= render 'layouts/header' %>
+<%= render 'layouts/header' if Rails.env.production? %>
 
 
 
